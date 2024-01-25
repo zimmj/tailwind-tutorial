@@ -1,74 +1,50 @@
-# Utility First Approach
+# CSS States
 
-## What is Utility First Approach?
+One of the most important things to understand about CSS is that it is a state-based language.
+This means that the way an element looks is determined by its current state. For example, a button can be in a default state, a hover state, a pressed state, a disabled state, and so on.
+Each of these states can have different styles applied to it.
 
-Utility First Approach is a way of writing CSS where you write small, single purpose utility classes that can be combined to create complex styles.
-This means that almost all different CSS attributes are written as classes, and then combined to create the desired style.
-
-For example, instead of writing:
+With old fashioned CSS, you would have to write a separate CSS rule for each state. For example:
 
 ```css
-.my-class {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+button {
+	background-color: blue;
+}
+
+button:hover {
+	background-color: red;
+}
+
+button:active {
+	background-color: green;
+}
+
+button:disabled {
+	background-color: gray;
 }
 ```
 
-You would write:
-
-```css
-.flex {
-	display: flex;
-}
-
-.flex-column {
-	flex-direction: column;
-}
-
-.justify-center {
-	justify-content: center;
-}
-```
-
-And then combine them in the HTML:
+In Tailwind, you can use the `hover`, `focus`, `active`, and `disabled` variants to apply different styles to an element based on its state.
 
 ```html
-<div class="flex-column flex justify-center"></div>
+<button class="bg-blue-500 hover:bg-red-500 active:bg-green-500 disabled:bg-gray-500">
+	Click me
+</button>
 ```
 
-This is the approach that Tailwind CSS takes, and it is a very powerful way of writing CSS.
-Tailwind already delivers all this utility classes, so you don't have to write them yourself.
-
-It as well comes with some extra functionalities to create the views you want, like responsive classes, pseudo classes, etc.
-We will see all of this in the next sections.
+This keeps the amount of code smaller, but the length of the class will explode over time.
+What is one downside of tailwind.
 
 ## Exercise
 
-For the purpose to show this approach, we will rewrite the CSS of the small example [Card](./src/lib/Card.svelte) component in this project.
+1. Create a new component called `Button` in `src/lib/Button.svelte`
+2. Add different state for the button
+   a. hover
+   b. focus
+   c. active
+   d. disabled
+3. Add this button to the card component
 
-At the moment, the CSS is written in a more traditional way, with classes like `.card` and `.card-title`.
-We will rewrite this CSS using Tailwind's utility classes.
+## Solution
 
-For exmaple, instead of writing:
-
-```css
-.card {
-	border: 1px solid #ccc;
-	border-radius: 15px;
-	margin: 24px;
-	padding: 16px;
-}
-```
-
-You would repalce the class card with following classes:
-
-```html
-<div class="m-6 rounded-lg border border-gray-300 p-4"></div>
-```
-
-You can find all the utility classes by searching in the [Tailwind CSS documentation](https://tailwindcss.com/docs).
-Finish the exercise by rewriting the CSS of the [Card-Tailwind](./src/lib/Card-Tailwind.svelte) component using Tailwind's utility classes.
-
-Compare the result with the [Card](./src/lib/Card.svelte) component.
+Can be found in the branch `concept_CSS-State-1-solution`

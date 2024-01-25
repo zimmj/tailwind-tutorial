@@ -1,24 +1,74 @@
-# Understanding of the Setup of Tailwind CSS
+# Utility First Approach
 
-## What is Tailwind CSS?
+## What is Utility First Approach?
 
-In short: Tailwind is a utility-first CSS framework. It moves all CSS to pre-defined classes. This makes it easy to use and to customize.
-For more information, see the [Tailwind CSS documentation](https://tailwindcss.com/docs).
+Utility First Approach is a way of writing CSS where you write small, single purpose utility classes that can be combined to create complex styles.
+This means that almost all different CSS attributes are written as classes, and then combined to create the desired style.
 
-## How does Tailwind CSS work?
+For example, instead of writing:
 
-The main magic happens in the postcss.config.js file. There we tell svelte kit to run tailwindcss to figure out which classes are used in the project.
-All used classes are then written into the app.css file.
-This file is loaded globally in the index.html file.
-Therefore, all classes are available in the project.
+```css
+.my-class {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+```
 
-Trough the purging of not used classes, the app.css file is kept small.
-But you can not easily add classes in the browser to test them out.
-They might not exist in the currect css file.
+You would write:
 
-## Try out the tailwind css
+```css
+.flex {
+	display: flex;
+}
 
-To try if tailwind is working, we cann add some simple classes to the index.html file.
-For example, we can add the class `text-red-500` to the div tag.
+.flex-column {
+	flex-direction: column;
+}
 
-As we see the text is now red.
+.justify-center {
+	justify-content: center;
+}
+```
+
+And then combine them in the HTML:
+
+```html
+<div class="flex-column flex justify-center"></div>
+```
+
+This is the approach that Tailwind CSS takes, and it is a very powerful way of writing CSS.
+Tailwind already delivers all this utility classes, so you don't have to write them yourself.
+
+It as well comes with some extra functionalities to create the views you want, like responsive classes, pseudo classes, etc.
+We will see all of this in the next sections.
+
+## Exercise
+
+For the purpose to show this approach, we will rewrite the CSS of the small example [Card](./src/lib/Card.svelte) component in this project.
+
+At the moment, the CSS is written in a more traditional way, with classes like `.card` and `.card-title`.
+We will rewrite this CSS using Tailwind's utility classes.
+
+For exmaple, instead of writing:
+
+```css
+.card {
+	border: 1px solid #ccc;
+	border-radius: 15px;
+	margin: 24px;
+	padding: 16px;
+}
+```
+
+You would repalce the class card with following classes:
+
+```html
+<div class="m-6 rounded-lg border border-gray-300 p-4"></div>
+```
+
+You can find all the utility classes by searching in the [Tailwind CSS documentation](https://tailwindcss.com/docs).
+Finish the exercise by rewriting the CSS of the [Card-Tailwind](./src/lib/Card-Tailwind.svelte) component using Tailwind's utility classes.
+
+Compare the result with the [Card](./src/lib/Card.svelte) component.

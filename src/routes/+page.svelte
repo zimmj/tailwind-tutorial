@@ -1,4 +1,5 @@
 <script>
+	import Button from '$lib/Button.svelte';
 	import CardTailwind from '$lib/Card-Tailwind.svelte';
 	import Card from '$lib/Card.svelte';
 </script>
@@ -24,5 +25,6 @@
 			<p>And how to use <b>Tailwind</b> combiened with your knowledge of css.</p>
 			<p><b>Tailwind</b> does not <mark>remove</mark> the requirement, that you know css.</p>
 		</div>
+		<Button />
 	</CardTailwind>
 </div>

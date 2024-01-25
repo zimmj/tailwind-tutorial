@@ -4,7 +4,7 @@
 </script>
 
 <div>
-	<Card title="Tailwind Tutoria">
+	<Card title="Tailwind Tutorial">
 		<div>
 			<p>This is a simple tutorial, don't expect to much</p>
 		</div>
@@ -15,7 +15,7 @@
 		</div>
 	</Card>
 
-	<CardTailwind title="Tailwind Tutoria">
+	<CardTailwind title="Tailwind Tutorial">
 		<div>
 			<p>This is a simple tutorial, don't expect to much</p>
 		</div>

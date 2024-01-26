@@ -1,7 +1,15 @@
-<script>
+<script lang="ts">
 	import Button from '$lib/Button.svelte';
 	import CardTailwind from '$lib/Card-Tailwind.svelte';
 	import Card from '$lib/Card.svelte';
+	import GroupingExample from '$lib/Grouping-Example.svelte';
+	import SimpleList, { type User } from '$lib/SimpleList.svelte';
+
+	let users: User[] = [
+		{ name: 'John Doe', email: 'john@example.com' },
+		{ name: 'Jane Smith', email: 'jane@example.com' },
+		{ name: 'Bob Johnson', email: 'bob@example.com' }
+	];
 </script>
 
 <div>
@@ -27,4 +35,14 @@
 		</div>
 		<Button />
 	</CardTailwind>
+
+	<CardTailwind title="Simple List Showcases">
+		<SimpleList {users} />
+	</CardTailwind>
+
+	<div class="invisible">
+		<CardTailwind title="Grouping Showcase Parent">
+			<GroupingExample />
+		</CardTailwind>
+	</div>
 </div>
